@@ -1,0 +1,2 @@
+from .models import ClassificationInputModel
+from .auto_classificator import do_autoclassification
