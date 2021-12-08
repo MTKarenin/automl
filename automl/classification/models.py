@@ -2,6 +2,10 @@ from typing import List
 from pydantic import BaseModel, validator
 
 
+class NotSupportedMetricException(KeyError):
+    pass
+
+
 class ClassificationInputModel(BaseModel):
     metric: str
     data: str
@@ -14,4 +18,4 @@ class ClassificationInputModel(BaseModel):
         if v in supported_metrics:
             return v
         else:
-            raise KeyError(f'metric {v} is not allowed\nsupported metric are {supported_metrics}')
+            raise NotSupportedMetricException(f'metric {v} is not allowed; Supported metric are {supported_metrics}')

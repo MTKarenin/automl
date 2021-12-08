@@ -1,2 +1,2 @@
-from .models import ClassificationInputModel
 from .auto_classificator import do_autoclassification
+from .models import ClassificationInputModel, NotSupportedMetricException

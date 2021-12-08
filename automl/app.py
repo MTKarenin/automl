@@ -6,7 +6,7 @@ import pickle
 from uuid import uuid4
 from threading import Thread
 from flask import Flask, jsonify, request, send_file
-from classification import ClassificationInputModel, do_autoclassification
+from classification import ClassificationInputModel, do_autoclassification, NotSupportedMetricException
 
 app = Flask(__name__)
 
@@ -31,11 +31,14 @@ def check_calculation_status_decorator(funciton):
 
 @app.route('/start_classification', methods=['POST'])
 def auto_classification():
-    model_id = uuid4()
-    params = ClassificationInputModel(**json.loads(request.data))
-    thread = Thread(target=do_autoclassification, args=(params, model_id))
-    thread.start()
-    return jsonify({'model_id': model_id}), 201
+    try:
+        model_id = uuid4()
+        params = ClassificationInputModel(**json.loads(request.data))
+        thread = Thread(target=do_autoclassification, args=(params, model_id))
+        thread.start()
+        return jsonify({'model_id': model_id}), 201
+    except NotSupportedMetricException as e:
+        return str(e), 400
 
 
 @app.route('/get_model')
