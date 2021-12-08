@@ -33,7 +33,8 @@ python3 -m pip install -r requirements.txt
 and you ready to go
 ## Docker
 
-You can set up this web-service in docker container if you wish
+You can set up this web-service in docker container if you wish.
+
 For this you will need [docker-compose](https://docs.docker.com/compose/install/)
 
 Then run 
@@ -45,4 +46,5 @@ And your service should work on http://localhost:5000
 
 # Usage
 You can find usage example in the example.ipynb 
+
 Make sure to run web-server before you send any request to it
