@@ -45,3 +45,4 @@ And your service should work on http://localhost:5000
 
 # Usage
 You can find usage example in the example.ipynb 
+Make sure to run web-server before you send any request to it
