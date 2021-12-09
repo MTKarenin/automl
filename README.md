@@ -38,6 +38,7 @@ cd automl
 and start an app:
 ```
 python3 -m flask run
+```
 
 ## Docker
 
