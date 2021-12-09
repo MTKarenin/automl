@@ -22,7 +22,7 @@ source venv/bin/activate
 
 On Windows:
 ```
-venv/Source/activate
+venv\Script\activate
 ```
 
 install required libraries:
@@ -30,7 +30,16 @@ install required libraries:
 python3 -m pip install -r requirements.txt
 ```
 
-and you ready to go
+go to automl dir:
+```
+cd automl
+```
+
+and start an app:
+```
+python3 -m flask run
+```
+
 ## Docker
 
 You can set up this web-service in docker container if you wish.
